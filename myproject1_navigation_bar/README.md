@@ -1,3 +1,8 @@
+# Demo - Navigation bar
+
+  ![result.gif](./fig/result.gif)
+gif created by Peek under Ubuntu
+
 # myproject1
 
 > A Vue.js project
@@ -269,8 +274,7 @@ export default new Router({
 })
 
 ```
-  ![result.gif](./fig/result.gif)
-gif created by Peek under Ubuntu
+
 
 # Reference
 1. How to create a navigation bar in Vue.js ([article](https://medium.com/@maeganwilson_/how-to-create-a-navigation-bar-in-vue-js-8a70e7f29f80)) ([code](https://github.com/maeganjwilson/vue-nav))
