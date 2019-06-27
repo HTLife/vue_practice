@@ -269,7 +269,7 @@ export default new Router({
 })
 
 ```
-  ![Peek 2019-06-27 17-09.gif](./fig/xwCK9AB6Z-Peek 2019-06-27 17-09.gif)
+  ![result.gif](./fig/result.gif)
 gif created by Peek under Ubuntu
 
 # Reference
