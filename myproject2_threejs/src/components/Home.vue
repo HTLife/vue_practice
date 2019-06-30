@@ -7,7 +7,7 @@ import * as THREE from 'three'
 
 export default {
   name: 'ThreeTest',
-  data() {
+  data () {
     return {
       cube: null,
       renderer: null,
@@ -16,8 +16,8 @@ export default {
     }
   },
   methods: {
-    init: function() {
-      let container = document.getElementById('pointcloud_container');
+    init: function () {
+      let container = document.getElementById('pointcloud_container')
 
       this.scene = new THREE.Scene()
       this.camera = new THREE.PerspectiveCamera(
@@ -28,7 +28,7 @@ export default {
       )
 
       this.renderer = new THREE.WebGLRenderer()
-      this.renderer.setSize(window.innerWidth-30, window.innerHeight-50)
+      this.renderer.setSize(window.innerWidth - 30, window.innerHeight - 50)
       document.body.appendChild(this.renderer.domElement)
 
       const geometry = new THREE.BoxGeometry(1, 1, 1)
@@ -38,11 +38,11 @@ export default {
 
       this.camera.position.z = 5
 
-      const animate = function() {}
+      // const animate = function () {}
 
-      container.appendChild(this.renderer.domElement);
+      container.appendChild(this.renderer.domElement)
     },
-    animate: function() {
+    animate: function () {
       requestAnimationFrame(this.animate)
 
       this.cube.rotation.x += 0.01
@@ -51,7 +51,7 @@ export default {
       this.renderer.render(this.scene, this.camera)
     }
   },
-  mounted() {
+  mounted () {
     this.init()
     this.animate()
   }
