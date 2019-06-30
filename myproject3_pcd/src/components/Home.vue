@@ -33,6 +33,7 @@ export default {
   methods: {
 
     init: function () {
+      var self = this
       this.container = document.getElementById('pointcloud_container')
 
       this.scene = new Scene()
@@ -47,12 +48,13 @@ export default {
       this.renderer.setSize(window.innerWidth, window.innerHeight)
       document.body.appendChild(this.renderer.domElement)
       var loader = new PCDLoader()
-      loader.load('https://raw.githubusercontent.com/mrdoob/three.js/4b18dbe78bec6067cd98e66539efe1b157f5635f/examples/models/pcd/ascii/simple.pcd', function (points) {
-        this.scene.add(points)
-        var center = points.geometry.boundingSphere.center
-        this.controls.target.set(center.x, center.y, center.z)
-        this.controls.update()
-      })
+      loader.load('https://github.com/mrdoob/three.js/blob/f1bac07f2214fea4ed3a2dad547c67401b1bfd50/examples/models/pcd/binary/Zaghetto.pcd?raw=true',
+        function (points) {
+          self.scene.add(points)
+          var center = points.geometry.boundingSphere.center
+          self.controls.target.set(center.x, center.y, center.z)
+          self.controls.update()
+        })
 
       this.container.appendChild(this.renderer.domElement)
 
