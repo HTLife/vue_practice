@@ -15,8 +15,6 @@ import Stats from 'three/examples/jsm/libs/stats.module.js'
 
 import { TrackballControls } from 'three/examples/jsm/controls/TrackballControls.js'
 import { PCDLoader } from 'three/examples/jsm/loaders/PCDLoader.js'
-
-import txt from 'raw-loader!./abc.pcd'
 // import Stats from '../js/stats.module.js'
 
 export default {
@@ -39,9 +37,9 @@ export default {
 
       this.scene = new Scene()
       this.scene.background = new Color(0x000000)
-      this.camera = new PerspectiveCamera(15, window.innerWidth / window.innerHeight, 0.01, 40)
-      this.camera.position.x = 0.4
-      this.camera.position.z = -2
+      this.camera = new PerspectiveCamera(40, window.innerWidth / window.innerHeight, 0.01, 1000)
+      this.camera.position.x = 0
+      this.camera.position.z = 200
       this.camera.up.set(0, 0, 1)
       this.scene.add(this.camera)
       this.renderer = new WebGLRenderer({ antialias: true })
@@ -51,8 +49,12 @@ export default {
       var loader = new PCDLoader()
       // ìmport pcd_file from 'raw-loader!./abc.pcd'
 
-      loader.load('https://raw.githubusercontent.com/PointCloudLibrary/pcl/master/test/bunny.pcd',
+      // loader.load('https://raw.githubusercontent.com/PointCloudLibrary/pcl/master/test/bunny.pcd',
+      loader.load('http://localhost:3010/api/param?file=abc.pcd',
         function (points) {
+          points.material.size = 0.1 // Set point size
+          points.material.color = new Color(1, 0, 0)
+
           self.scene.add(points)
           var center = points.geometry.boundingSphere.center
           self.controls.target.set(center.x, center.y, center.z)
@@ -62,15 +64,15 @@ export default {
       this.container.appendChild(this.renderer.domElement)
 
       this.controls = new TrackballControls(this.camera, this.renderer.domElement)
-      this.controls.rotateSpeed = 2.0
-      this.controls.zoomSpeed = 0.3
-      this.controls.panSpeed = 0.2
+      this.controls.rotateSpeed = 5.0
+      this.controls.zoomSpeed = 2.0
+      this.controls.panSpeed = 2.0
       this.controls.noZoom = false
       this.controls.noPan = false
       this.controls.staticMoving = true
-      this.controls.dynamicDampingFactor = 0.3
+      this.controls.dynamicDampingFactor = 2.0
       this.controls.minDistance = 0.3
-      this.controls.maxDistance = 0.3 * 100
+      this.controls.maxDistance = 0.3 * 1000
 
       this.stats = new Stats()
       this.container.appendChild(this.stats.dom)
@@ -85,7 +87,7 @@ export default {
       this.controls.handleResize()
     },
     keyboard: function (ev) {
-      var points = this.scene.getObjectByName('simple.pcd')
+      var points = this.scene.getObjectByName('param?file=abc.pcd')
       switch (ev.key || String.fromCharCode(ev.keyCode || ev.charCode)) {
         case '+':
           points.material.size *= 1.2
