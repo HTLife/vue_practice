@@ -1,9 +1,9 @@
-# Demo - Navigation bar
+# Demo - three.js
 
-  ![result.gif](./fig/result.gif)
+  ![result.gif](./fig/result.png)
 gif created by Peek under Ubuntu
 
-# myproject1
+# myproject3
 
 > A Vue.js project
 
@@ -27,17 +27,10 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 # Steps
 
-1. Install three.js
-
-```bash
-npm install three --save
-```
-
-2. Change the content of `Home.vue`
+Modify the sample code in [1] to Vue.js syntax.
 
 
 
 # Reference 
 
-1. StackOverflow - [Import and use three.js library in vue component](https://stackoverflow.com/questions/47849626/import-and-use-three-js-library-in-vue-component)
-2. [three.js - Creating a scene](https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene)
+1. GitHub - three.js - [webgl_loader_pcd.html](https://github.com/mrdoob/three.js/blob/dev/examples/webgl_loader_pcd.html)

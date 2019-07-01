@@ -16,6 +16,7 @@ import Stats from 'three/examples/jsm/libs/stats.module.js'
 import { TrackballControls } from 'three/examples/jsm/controls/TrackballControls.js'
 import { PCDLoader } from 'three/examples/jsm/loaders/PCDLoader.js'
 
+import txt from 'raw-loader!./abc.pcd'
 // import Stats from '../js/stats.module.js'
 
 export default {
@@ -48,7 +49,9 @@ export default {
       this.renderer.setSize(window.innerWidth, window.innerHeight)
       document.body.appendChild(this.renderer.domElement)
       var loader = new PCDLoader()
-      loader.load('https://github.com/mrdoob/three.js/blob/f1bac07f2214fea4ed3a2dad547c67401b1bfd50/examples/models/pcd/binary/Zaghetto.pcd?raw=true',
+      // ìmport pcd_file from 'raw-loader!./abc.pcd'
+
+      loader.load('https://raw.githubusercontent.com/PointCloudLibrary/pcl/master/test/bunny.pcd',
         function (points) {
           self.scene.add(points)
           var center = points.geometry.boundingSphere.center
