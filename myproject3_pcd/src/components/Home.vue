@@ -30,8 +30,8 @@ export default {
       container: null,
       controls: null,
       stats: null,
-      innerWidth_minus: 20,
-      innerHeight_minus: 50
+      innerWidth_minus: 10,
+      innerHeight_minus: 45
     }
   },
   methods: {

@@ -41,6 +41,6 @@ export default {
 
 <style>
 .spacing {
-  margin-right: 10px;
+  margin-right: 30px;
 }
 </style>
